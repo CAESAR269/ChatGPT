@@ -9,10 +9,12 @@ import ThemeSwitcher from '@components/Menu/MenuOptions/ThemeSwitcher';
 import LanguageSelector from '@components/LanguageSelector';
 import AutoTitleToggle from './AutoTitleToggle';
 import AdvancedModeToggle from './AdvencedModeToggle';
+import InlineLatexToggle from './InlineLatexToggle';
+
 import PromptLibraryMenu from '@components/PromptLibraryMenu';
 import ChatConfigMenu from '@components/ChatConfigMenu';
 import EnterToSubmitToggle from './EnterToSubmitToggle';
-
+import TotalTokenCost, { TotalTokenCostToggle } from './TotalTokenCost';
 
 const SettingsMenu = () => {
   const { t } = useTranslation();
@@ -45,10 +47,13 @@ const SettingsMenu = () => {
             <div className='flex flex-col gap-3'>
               <AutoTitleToggle />
               <EnterToSubmitToggle />
+              <InlineLatexToggle />
               <AdvancedModeToggle />
+              <TotalTokenCostToggle />
             </div>
             <PromptLibraryMenu />
             <ChatConfigMenu />
+            <TotalTokenCost />
           </div>
         </PopupModal>
       )}
