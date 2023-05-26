@@ -25,10 +25,9 @@ steps:
     scriptLocation: 'scriptPath'
     scriptPath: 'kube.sh'
 
-- task: Kubernetes@1
+- task: Bash@3
   inputs:
-    connectionType: 'None'
-    command: 'apply'
-    arguments: 'chatgpt-clone-deploy.yaml'
-    secretType: 'dockerRegistry'
-    containerRegistryType: 'Container Registry'
+    targetType: 'inline'
+    script: |
+      kubectl apply -f chatgpt-clone-deploy.yaml
+      kubectl get svc
