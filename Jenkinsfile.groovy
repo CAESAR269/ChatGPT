@@ -11,7 +11,7 @@ pipeline {
        stage('build')
         {
             steps{
-                docker build ChatGPT:latest .
+                sh 'docker build ChatGPT:latest .'
             }
         }
     }
