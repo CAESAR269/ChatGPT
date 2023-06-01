@@ -10,12 +10,10 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: Kubernetes@1
+- task: Docker@2
   inputs:
-    connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'K8s'
-    namespace: 'test'
-    command: 'apply'
-    arguments: 'chatgpt-clone-deploy.yaml'
-    secretType: 'dockerRegistry'
-    containerRegistryType: 'Azure Container Registry'
+    containerRegistry: 'ACR'
+    repository: 'tsar7'
+    command: 'buildAndPush'
+    Dockerfile: '**/Dockerfile'
+    tags: 'alpha1.0'
