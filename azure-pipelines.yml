@@ -30,3 +30,4 @@ steps:
     containerRegistryType: 'Container Registry'
     dockerRegistryEndpoint: 'Docker'
     forceUpdate: false
+    outputFormat: 'yaml'
