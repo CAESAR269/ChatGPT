@@ -22,10 +22,11 @@ steps:
   inputs:
     connectionType: 'Kubernetes Service Connection'
     kubernetesServiceEndpoint: 'K8s'
-    namespace: 'Dev'
+    namespace: 'dev'
     command: 'apply'
     useConfigurationFile: true
     configuration: 'chatgpt-clone-deploy.yaml'
     secretType: 'dockerRegistry'
     containerRegistryType: 'Container Registry'
     dockerRegistryEndpoint: 'Docker'
+    forceUpdate: false
