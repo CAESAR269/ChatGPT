@@ -14,7 +14,7 @@ pipeline {
        stage('build')
         {
             steps{
-                sh 'docker image build -t ChatGPT:latest .'
+                sh 'docker image build -t caesar269/chatgpt:latest .'
             }
         }
     }
