@@ -1,16 +1,17 @@
+/* groovylint-disable-next-line CompileStatic */
 pipeline {
     agent any
     stages {
         stage('vcs')
         {
-            steps{
-            git branch: main,
-            url: 'https://github.com/CAESAR269/ChatGPT.git'
+            steps {
+                git branch: main,
+                url: 'https://github.com/CAESAR269/ChatGPT.git'
+            }
         }
-    }
-       stage('build')
+        stage('build')
         {
-            steps{
+            steps {
                 sh 'docker image build -t caesar269/chatgpt:latest .'
             }
         }
