@@ -1,6 +1,6 @@
 pipeline {
     agent { label 'node' }
-    stages{
+    stages {
         stage('vcs')
         {
             steps{
