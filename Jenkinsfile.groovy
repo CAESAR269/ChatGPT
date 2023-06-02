@@ -1,5 +1,5 @@
 pipeline {
-    agent { label 'Docker' }
+    agent { label 'node' }
     stages{
         stage('vcs')
         {
@@ -11,7 +11,7 @@ pipeline {
        stage('build')
         {
             steps{
-                sh 'docker build ChatGPT:latest .'
+                sh 'docker image build -t ChatGPT:latest .'
             }
         }
     }
