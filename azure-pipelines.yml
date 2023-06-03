@@ -13,10 +13,10 @@ steps:
 - task: Docker@2
   inputs:
     containerRegistry: 'ACR'
-    repository: 'tsar7'
+    repository: 'chatgpt'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-    tags: 'alpha'
+    tags: 'latest'
 
 - task: Kubernetes@1
   inputs:
