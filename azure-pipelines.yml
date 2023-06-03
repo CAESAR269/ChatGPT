@@ -10,16 +10,9 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: Kubernetes@1
+- task: KubernetesManifest@1
   inputs:
-    connectionType: 'Kubernetes Service Connection'
-    kubernetesServiceEndpoint: 'K8s'
-    command: 'apply'
-    useConfigurationFile: true
-    configurationType: 'inline'
-    inline: 'chatgpt-clone-deploy.yaml'
-    secretType: 'dockerRegistry'
-    containerRegistryType: 'Azure Container Registry'
-    azureSubscriptionEndpointForSecrets: 'Azure subscription 1(977812bc-0cfb-4c57-8912-a7804ccf8fba)'
-    azureContainerRegistry: 'tsar7.azurecr.io'
-    checkLatest: true
+    action: 'deploy'
+    connectionType: 'kubernetesServiceConnection'
+    kubernetesServiceConnection: 'K8s'
+    manifests: 'chatgpt-clone-deploy.yaml'
