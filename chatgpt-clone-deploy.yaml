@@ -18,7 +18,7 @@ spec:
     spec:
       containers:
         - name: chatgpt-clone
-          image: tsar7.azurecr.io/chatgpt:alpha
+          image: tsar7.azurecr.io/chatgpt:latest
           ports:
             - containerPort: 3000
               name: http-web-port
