@@ -16,4 +16,18 @@ steps:
     repository: 'tsar7'
     command: 'buildAndPush'
     Dockerfile: '**/Dockerfile'
-    tags: 'alpha1.0'
+    tags: 'alpha'
+
+- task: Kubernetes@1
+  inputs:
+    connectionType: 'Kubernetes Service Connection'
+    kubernetesServiceEndpoint: 'K8s'
+    command: 'apply'
+    useConfigurationFile: true
+    configurationType: 'inline'
+    inline: 'chatgpt-clone-deploy.yaml'
+    secretType: 'dockerRegistry'
+    containerRegistryType: 'Azure Container Registry'
+    azureSubscriptionEndpointForSecrets: 'Azure subscription 1(977812bc-0cfb-4c57-8912-a7804ccf8fba)'
+    azureContainerRegistry: 'tsar7.azurecr.io'
+    outputFormat: 'yaml'
