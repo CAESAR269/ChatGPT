@@ -10,14 +10,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: Docker@2
-  inputs:
-    containerRegistry: 'ACR'
-    repository: 'chatgpt'
-    command: 'buildAndPush'
-    Dockerfile: '**/Dockerfile'
-    tags: 'latest'
-
 - task: Kubernetes@1
   inputs:
     connectionType: 'Kubernetes Service Connection'
@@ -30,4 +22,4 @@ steps:
     containerRegistryType: 'Azure Container Registry'
     azureSubscriptionEndpointForSecrets: 'Azure subscription 1(977812bc-0cfb-4c57-8912-a7804ccf8fba)'
     azureContainerRegistry: 'tsar7.azurecr.io'
-    outputFormat: 'yaml'
+    checkLatest: true
