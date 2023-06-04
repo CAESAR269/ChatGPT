@@ -1,0 +1,38 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: chatgpt-clone-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dev
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      name: chatgpt-clone-deploy
+      labels:
+        app: dev
+    spec:
+      containers:
+        - name: chatgpt-clone
+          image: caesar269/chatgpt:latest
+          ports:
+            - containerPort: 3000
+              name: http-web-port
+
+---
+apiVersion: v1
+kind: Service
+metadata: 
+  name: chatgpt-clone-svc
+spec:
+  type: LoadBalancer
+  selector:
+     app: dev
+  ports:
+    - name: http-web-port
+      port: 3000
+      targetPort: 3000 
