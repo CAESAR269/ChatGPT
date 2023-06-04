@@ -15,4 +15,4 @@ steps:
     action: 'deploy'
     connectionType: 'kubernetesServiceConnection'
     kubernetesServiceConnection: 'K8s'
-    manifests: '/kube/dev/chatgpt-clone-deploy.yaml'
+    manifests: '/kube/dev/**.yaml'
