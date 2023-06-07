@@ -1,16 +1,16 @@
 pipeline {
     agent any
-    stages{
+    stages {
         stage('vcs')
         {
-            steps{
+            steps {
             git branch: main,
             url: 'https://github.com/CAESAR269/dotnetaug2021.git'
         }
     }
        stage('build')
         {
-            steps{
+            steps {
                 sh 'docker image build -t caesar269/chatgpt:latest .'
             }
         }
