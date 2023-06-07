@@ -10,11 +10,7 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- task: GoogleCloudSdkTool@1
-  inputs:
-    versionSpec: '315.x'
-
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: 'gcloud container clusters get-credentials cluster-1 --location=us-central1-c'
+    script: 'docker info'
