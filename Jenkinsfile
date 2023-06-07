@@ -4,7 +4,7 @@ pipeline {
         stage('vcs')
         {
             steps {
-            git branch: main,
+            git branch: 'main',
             url: 'https://github.com/CAESAR269/ChatGPT.git'
         }
     }
