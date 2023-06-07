@@ -5,7 +5,7 @@ pipeline {
         {
             steps {
             git branch: main,
-            url: 'https://github.com/CAESAR269/dotnetaug2021.git'
+            url: 'https://github.com/CAESAR269/ChatGPT.git'
         }
     }
        stage('build')
