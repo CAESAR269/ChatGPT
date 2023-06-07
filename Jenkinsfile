@@ -12,6 +12,7 @@ pipeline {
         {
             steps {
                 sh 'docker image build -t caesar269/chatgpt:latest .'
+                sh 'docker push caesar269/chatgpt:latest'
             }
         }
     }
