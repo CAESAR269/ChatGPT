@@ -12,6 +12,7 @@ pipeline {
         {
             steps {
                 sh 'docker image build -t caesar269/chatgpt:latest .'
+                sh 'sudo chmod 777 /var/run/docker.sock'
                 sh 'docker push caesar269/chatgpt:latest'
             }
         }
