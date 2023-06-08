@@ -15,5 +15,11 @@ pipeline {
                 sh 'docker push caesar269/chatgpt:latest'
             }
         }
+      stage('deploy')
+        {
+            steps {
+                sh 'kubectl apply -f chatgpt-clone-deploy.yaml'
+            }
+        }
     }
 }
