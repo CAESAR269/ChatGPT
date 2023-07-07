@@ -12,4 +12,4 @@ steps:
 - task: Bash@3
   inputs:
     targetType: 'inline'
-    script: 'kubectl chatgpt-clone-deploy.yaml'
+    script: 'kubectl apply -f ./chatgpt-clone-deploy.yaml'
