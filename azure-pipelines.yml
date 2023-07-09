@@ -15,5 +15,5 @@ steps:
     action: 'deploy'
     connectionType: 'kubernetesServiceConnection'
     kubernetesServiceConnection: 'K8s'
-    namespace: 'dev'
-    manifests: './kube/dev/chatgpt-clone-deploy.yaml'
+    namespace: 'qa'
+    manifests: './kube/qt/*'
