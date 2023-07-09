@@ -15,5 +15,5 @@ steps:
     action: 'deploy'
     connectionType: 'kubernetesServiceConnection'
     kubernetesServiceConnection: 'K8s'
-    namespace: 'qa'
+    namespace: 'qt'
     manifests: './kube/qt/*'
