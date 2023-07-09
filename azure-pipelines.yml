@@ -9,7 +9,10 @@ trigger:
 pool: Default
 
 steps:
-- task: Bash@3
+- task: KubernetesManifest@1
   inputs:
-    targetType: 'inline'
-    script: 'kubectl apply -f ./chatgpt-clone-deploy.yaml'
+    action: 'deploy'
+    connectionType: 'kubernetesServiceConnection'
+    kubernetesServiceConnection: 'K8s'
+    namespace: 'dev'
+    manifests: './kube/dev/chatgpt-clone-deploy.yaml'
