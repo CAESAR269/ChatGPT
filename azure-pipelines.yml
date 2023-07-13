@@ -26,11 +26,4 @@ stages:
           connectionType: 'kubernetesServiceConnection'
           kubernetesServiceConnection: 'K8s'
           namespace: 'dev'
-          manifests: './kube/dev/*'
-      - task: KubernetesManifest@1
-        inputs:
-          action: 'deploy'
-          connectionType: 'kubernetesServiceConnection'
-          kubernetesServiceConnection: 'K8s'
-          namespace: 'qt'
-          manifests: './kube/qt/*'
+          manifests: './kube/chatgpt-clone-deploy.yaml'
