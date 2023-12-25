@@ -18,5 +18,5 @@ stages:
         inputs:
           projectName: 'chatgpt'
           scanPath: 'package.json'
-          format: 'XML, HTML, CSV, JSON, JUNIT'
+          format: 'ALL'
         
