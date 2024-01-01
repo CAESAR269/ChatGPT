@@ -17,6 +17,6 @@ stages:
       - task: dependency-check-build-task@6
         inputs:
           projectName: 'chatgpt'
-          scanPath: 'package.json'
+          scanPath: './'
           format: 'ALL'
-        
+      
