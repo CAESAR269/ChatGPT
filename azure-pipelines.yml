@@ -14,9 +14,13 @@ stages:
     jobs:
     - job: 
       steps:
-      - task: SonarQubePrepare@5
+      - task: Bash@3
         inputs:
-          SonarQube: 'Sonarqube'
-          scannerMode: 'MSBuild'
-          projectKey: 'DevSecOps_DevSecOps_AYzJHEg7Oy3HZSz8cNnB'
-      
+          targetType: 'inline'
+          script: 'yarn install'
+          workingDirectory: './'
+      - task: dependency-check-build-task@6
+        inputs:
+          projectName: 'chatgpt'
+          scanPath: './'
+          format: 'ALL'
