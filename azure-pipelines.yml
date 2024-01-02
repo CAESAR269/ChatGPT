@@ -14,9 +14,8 @@ stages:
     jobs:
     - job: 
       steps:
-      - task: dependency-check-build-task@6
+      - task: SonarQubeAnalyze@5
         inputs:
-          projectName: 'chatgpt'
-          scanPath: './'
-          format: 'ALL'
+          jdkversion: 'JAVA_HOME_11_X64'
+      
       
