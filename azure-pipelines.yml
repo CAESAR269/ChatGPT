@@ -14,8 +14,9 @@ stages:
     jobs:
     - job: 
       steps:
-      - task: SonarQubeAnalyze@5
+      - task: SonarQubePrepare@5
         inputs:
-          jdkversion: 'JAVA_HOME_11_X64'
-      
+          SonarQube: 'Sonarqube'
+          scannerMode: 'MSBuild'
+          projectKey: 'DevSecOps_DevSecOps_AYzJHEg7Oy3HZSz8cNnB'
       
