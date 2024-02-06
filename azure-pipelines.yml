@@ -14,6 +14,12 @@ stages:
     jobs:
     - job: 
       steps:
+      - task: AzureCLI@2
+        inputs:
+          azureSubscription: 'Azure subscription 1(76a154a4-4bbf-4661-a9d7-c42b0c6fa711)'
+          scriptType: 'bash'
+          scriptLocation: 'inlineScript'
+          inlineScript: 'az aks get-credentials -g az -n sample_cluster'
       - task: Kubernetes@1
         inputs:
           connectionType: 'Kubernetes Service Connection'
@@ -23,5 +29,4 @@ stages:
           configurationType: 'inline'
           inline: |
             kubectl apply -f ./kube/chatgpt-clone-deploy.yaml
-            
             kubectl apply -f ./kube/chatgpt-clone-svc.yaml
