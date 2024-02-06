@@ -14,13 +14,14 @@ stages:
     jobs:
     - job: 
       steps:
-      - task: Bash@3
+      - task: Kubernetes@1
         inputs:
-          targetType: 'inline'
-          script: 'yarn install'
-          workingDirectory: './'
-      - task: dependency-check-build-task@6
-        inputs:
-          projectName: 'chatgpt'
-          scanPath: './'
-          format: 'ALL'
+          connectionType: 'Kubernetes Service Connection'
+          kubernetesServiceEndpoint: 'Dev-sample_cluster-dev-1707228159481'
+          command: 'apply'
+          useConfigurationFile: true
+          configurationType: 'inline'
+          inline: |
+            kubectl apply -f ./kube/chatgpt-clone-deploy.yaml
+            
+            kubectl apply -f ./kube/chatgpt-clone-svc.yaml
