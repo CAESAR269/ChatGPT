@@ -20,13 +20,10 @@ stages:
           scriptType: 'bash'
           scriptLocation: 'inlineScript'
           inlineScript: 'az aks get-credentials -g az -n sample_cluster'
-      - task: Kubernetes@1
+      - task: KubernetesManifest@1
         inputs:
-          connectionType: 'Kubernetes Service Connection'
-          kubernetesServiceEndpoint: 'Dev-sample_cluster-dev-1707228159481'
-          command: 'apply'
-          useConfigurationFile: true
-          configurationType: 'inline'
-          inline: |
-            kubectl apply -f ./kube/chatgpt-clone-deploy.yaml
-            kubectl apply -f ./kube/chatgpt-clone-svc.yaml
+          action: 'deploy'
+          connectionType: 'kubernetesServiceConnection'
+          kubernetesServiceConnection: 'Dev-sample_cluster-dev-1707228159481'
+          namespace: 'dev'
+          manifests: './kube/*'
