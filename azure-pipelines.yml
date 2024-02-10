@@ -14,16 +14,16 @@ stages:
     jobs:
     - job: 
       steps:
-      - task: AzureCLI@2
+      - task: Bash@3
         inputs:
-          azureSubscription: 'Azure subscription 1(76a154a4-4bbf-4661-a9d7-c42b0c6fa711)'
-          scriptType: 'bash'
-          scriptLocation: 'inlineScript'
-          inlineScript: 'az aks get-credentials -g az -n sample_cluster'
-      - task: KubernetesManifest@1
+          targetType: 'inline'
+          script: |
+            sudo apt-get install wget apt-transport-https gnupg lsb-release
+            wget -qO - https://aquasecurity.github.io/trivy-repo/deb/public.key | gpg --dearmor | sudo tee /usr/share/keyrings/trivy.gpg > /dev/null
+            echo "deb [signed-by=/usr/share/keyrings/trivy.gpg] https://aquasecurity.github.io/trivy-repo/deb $(lsb_release -sc) main" | sudo tee -a /etc/apt/sources.list.d/trivy.list
+            sudo apt-get update
+            sudo apt-get install trivy
+      - task: Bash@3
         inputs:
-          action: 'deploy'
-          connectionType: 'kubernetesServiceConnection'
-          kubernetesServiceConnection: 'Dev-sample_cluster-dev-1707228159481'
-          namespace: 'dev'
-          manifests: './kube/*'
+          targetType: 'inline'
+          script: 'trivy repo --quiet --severity CRITICAL ./'
