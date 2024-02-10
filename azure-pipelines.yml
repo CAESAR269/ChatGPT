@@ -26,4 +26,4 @@ stages:
       - task: Bash@3
         inputs:
           targetType: 'inline'
-          script: 'trivy repo --quiet --severity CRITICAL .'
+          script: 'trivy repo --quiet --severity CRITICAL https://github.com/CAESAR269/spring-petclinic.git'
