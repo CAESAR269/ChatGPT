@@ -11,6 +11,10 @@ jobs:
     name: My Job
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v3
+      
       - name : Docker build
         run: |
-          docker build -t caesar269/chatgpt:latest ./
+          docker build -t caesar269/chatgpt:latest .
+          docker login -u caesar269 -p Udai@1248
+          docker push caesar269/chatgpt:latest
