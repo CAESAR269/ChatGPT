@@ -13,6 +13,4 @@ jobs:
     steps:
       - name : Docker build
         run: |
-          docker build -t caesar269/chatgpt:latest -f ./**/*Dockerfile 
-          docker login -u caesar269 -p Udai@1248
-          docker push chatgpt:latest
+          docker build -t caesar269/chatgpt:latest ./
