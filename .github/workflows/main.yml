@@ -1,14 +1,18 @@
-name: "Docker Build
+name: "Docker Build"
 on:
   pull_request:
-    - main
+    branches:
+      - main
   push:
-    - main
+    branches:
+      - main
 jobs:
+  my-job:
+    name: My Job
     runs-on: ubuntu-latest
     steps:
-      - name:  Check out the repository to the runner
-        uses: actions/checkout@v4
-      - name: Docker Build
+      - name : Docker build
         run: |
-          docker build -t name chatgpt:latest .
+          docker build -t CAESAR269/chatgpt:latest .
+          docker login -u CAESAR269 -p Udai@1248
+          docker push chatgpt:latest
