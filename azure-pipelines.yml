@@ -19,4 +19,4 @@ stages:
           targetType: 'inline'
           script: |
             'printenv'
-            'sudo cat /etc/profile'
+            'sudo nano /etc/profile'
