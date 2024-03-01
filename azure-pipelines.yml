@@ -19,4 +19,4 @@ stages:
           targetType: 'inline'
           script: |
             'printenv'
-            'sudo nano /etc/profile'
+            'python3'
